@@ -19,9 +19,9 @@ public class testeLivro {
 		livro1.exibirCadastro();
 		
 		livro2.nome = "Corona";
-		livro2.autor = "China";
+		livro2.autor = "China - não autorizado";
 		livro2.codLivro = 2;
-		livro2.descricao = "Quarentena";
+		livro2.descricao = "Receitas de morcego";
 		livro2.ano = "2020";
 		livro2.edicao = "1";
 		livro2.isbn = "123.123.123";
