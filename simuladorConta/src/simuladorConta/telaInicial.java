@@ -10,6 +10,10 @@ public class telaInicial {
 		cliente cliente1 = new cliente(); 
 		conta conta1 = new conta();
 		Scanner ler = new Scanner(System.in);
+		
+		//enquanto não temos banco de dados
+		String clienteFixo1 = "D";
+		
 	
 		System.out.printf ("Digite Agência: ");
 		conta1.agencia = ler.nextInt();
