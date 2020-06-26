@@ -18,6 +18,8 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioDAO dao;
+	
+
 
 	@GetMapping("/usuarios")
 	public ArrayList<Usuario> listarTudo(){
@@ -47,4 +49,5 @@ public class UsuarioController {
 			}
 	}
 	
+
 }

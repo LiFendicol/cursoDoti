@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
@@ -31,6 +33,7 @@ public class Departamento {
 	private String unidade;
 	
 	@OneToMany(mappedBy="depto", cascade=CascadeType.ALL)
+	@JsonIgnoreProperties("depto")
 	private List<Usuario> listaUsuarios;
 
 	public int getId() {
