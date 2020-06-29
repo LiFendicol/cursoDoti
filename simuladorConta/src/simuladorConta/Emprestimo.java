@@ -7,10 +7,14 @@ public class Emprestimo {
 	private double percentual = 0.2;
 	
 	//Valida se o saldo + emprestimo aprovado cobre a retirada pedida
-	boolean temEmprestimo (double saldo, double retirar, double salario) {
-		if (((calcEmprestimo (salario)+saldo) - retirar) >=0) {
-			return true;
-		} else {
+	boolean temEmprestimo (double saldo, double retirar, double salario, int qtdeEmprestimo) {
+		if (qtdeEmprestimo == 0) {
+			if (((calcEmprestimo (salario)+saldo) - retirar) >=0) {
+				return true;
+				} else {
+					return false;
+				}
+			}else {
 			return false;
 		}
 	}

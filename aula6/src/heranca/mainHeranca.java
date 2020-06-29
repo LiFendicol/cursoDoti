@@ -6,15 +6,15 @@ public class mainHeranca {
 		// TODO Auto-generated method stub
 		funcionario f1 = new funcionario();
 		
-		f1.nome = "D";
-		f1.salario = 100;
-		f1.endereco = "R";
+		f1.setNome("D");
+		f1.setSalario(100);
+		f1.setEndereco("R");
 		
 		professor p1 = new professor();
 		
-		p1.nome = "T";
-		p1.salario = 100;
-		p1.endereco = "X";
+		p1.setNome("T");
+		p1.setSalario(200);
+		p1.setEndereco("X");
 		p1.disciplina = "Dis";
 		p1.titulacao = "Tit";
 		
@@ -22,9 +22,9 @@ public class mainHeranca {
 		p1.exibirProfessor();
 		
 		atendente a1 = new atendente();
-		a1.nome = "A";
-		a1.salario = 10;
-		a1.endereco = "F";
+		a1.setNome("A");
+		a1.setSalario(10);
+		a1.setEndereco("F");
 		a1.setor = "Vendas";
 		
 		a1.exibirDados();

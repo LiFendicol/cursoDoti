@@ -10,6 +10,8 @@ public class Conta implements OperacoesBancarias {
 	private String cpf;
 	private double saldo;
 	private int qtdeRetiradas = 0;
+	private int qtdeEmprestimos = 0;
+
 	Scanner ler = new Scanner(System.in);
 
 	//acho que criei a toa esse aqui, é mais para query de SQL...
@@ -27,7 +29,7 @@ public class Conta implements OperacoesBancarias {
 		System.out.println("Saldo em conta: "+getSaldo());
 	}
 	
-	//Remove valor, mostra novo saldo, e quantidade de retiradas
+	//Remove valor, mostra novo saldo, e quantidade de retiradas, aplica emprestimo.... uma zona....
 	public void removeSaldo(double retirar, Cliente c1) {
 		if (temSaldopararetirar(retirar)) {
 			this.saldo = this.saldo - retirar;
@@ -35,29 +37,17 @@ public class Conta implements OperacoesBancarias {
 			System.out.println("Saldo em conta: "+this.saldo);
 			System.out.println("Retiradas do dia: "+this.qtdeRetiradas+". Limite de 3 por dia");
 		} else {
+			System.out.println("Saldo insuficiente");
 			Emprestimo empresta = new Emprestimo();
-			if (empresta.temEmprestimo(this.saldo, retirar, c1.getSalario())){
-					if (empresta.ofereceEmprestimo(c1.getSalario())) {
-						this.saldo = this.saldo + empresta.calcEmprestimo(c1.getSalario());
-						System.out.println("Emprestimo de "+empresta.calcEmprestimo(c1.getSalario())+" aplicado.");
-						System.out.println("Emprestimo contratado.");
-						System.out.println("Novo saldo em conta: "+this.saldo);
-						this.saldo = this.saldo - retirar;
-						System.out.println("Feito retirada de: "+retirar);
-						System.out.println("Saldo em conta final: "+this.saldo);
-					}else {
-						System.out.println("Emprestimo não contratado.");
-						System.out.println("Saldo insuficiente");
-						System.out.println("Saldo em conta: "+this.saldo);
-					}
-					
+			if (empresta.temEmprestimo(this.saldo, retirar, c1.getSalario(),this.qtdeEmprestimos)){
+				aplicaEmprestimo(retirar,c1,empresta);
+				setQtdeRetiradas(qtdeRetiradas+1);
+				setQtdeEmprestimos(qtdeEmprestimos+1);
 			}else {
 				System.out.println("Saldo insuficiente");
 				System.out.println("Saldo em conta: "+this.saldo);
 			}
-			
 		}
-			
 	}
 
 	//Verifica se tem saldo
@@ -69,6 +59,20 @@ public class Conta implements OperacoesBancarias {
 		}
 	}
 
+	public void aplicaEmprestimo(double retirar, Cliente c1, Emprestimo empresta) {
+		if (empresta.ofereceEmprestimo(c1.getSalario())) {
+			this.saldo = this.saldo + empresta.calcEmprestimo(c1.getSalario());
+			System.out.println("Emprestimo de "+empresta.calcEmprestimo(c1.getSalario())+" aplicado.");
+			System.out.println("Novo saldo em conta: "+this.saldo);
+			this.saldo = this.saldo - retirar;
+			System.out.println("Feito retirada de: "+retirar);
+			System.out.println("Saldo em conta final: "+this.saldo);
+		}else {
+			System.out.println("Emprestimo não contratado.");
+			System.out.println("Saldo insuficiente");
+			System.out.println("Saldo em conta: "+this.saldo);
+		}	
+	}
 
 	public void verSaldo() {
 		System.out.println(saldo);
@@ -119,5 +123,13 @@ public class Conta implements OperacoesBancarias {
 	this.cpf = cpf;
 	this.saldo = saldo;
 	this.qtdeRetiradas = qtdeRetiradas;
+	}
+
+	public int getQtdeEmprestimos() {
+		return qtdeEmprestimos;
+	}
+
+	public void setQtdeEmprestimos(int qtdeEmprestimos) {
+		this.qtdeEmprestimos = qtdeEmprestimos;
 	}
 }

@@ -1,0 +1,19 @@
+	#	Time	Action	Message	Duration / Fetch
+3	1	11:01:50	DROP DATABASE `conta`	0 row(s) affected	0.031 sec
+3	2	11:01:56	DROP DATABASE `cadastro`	0 row(s) affected	0.016 sec
+3	3	11:02:26	select * from sys_config
+ LIMIT 0, 1000	6 row(s) returned	0.047 sec / 0.000 sec
+3	4	11:02:54	select * from user_summary
+ LIMIT 0, 1000	2 row(s) returned	0.032 sec / 0.000 sec
+3	5	11:07:25	SHOW DATABASES	4 row(s) returned	0.000 sec / 0.000 sec
+3	6	11:12:51	create database aula	1 row(s) affected	0.016 sec
+3	7	11:14:35	SHOW DATABASES	5 row(s) returned	0.000 sec / 0.000 sec
+3	8	11:16:04	use aula	0 row(s) affected	0.000 sec
+3	9	11:20:55	create table alunos(ra varchar(5),nome varchar(20),endereco varchar(30))	0 row(s) affected	0.203 sec
+3	10	11:23:01	show tables	1 row(s) returned	0.016 sec / 0.000 sec
+3	11	11:26:45	describe alunos	3 row(s) returned	0.000 sec / 0.000 sec
+3	12	11:29:30	create database Meu_banco	1 row(s) affected	0.016 sec
+3	13	11:29:37	use Meu_banco	0 row(s) affected	0.000 sec
+3	14	11:43:56	create table meus_contatos (nome char(30),sobrenome char(20),email varchar(50), aniversario date, profissao varchar(20),endereco varchar(100), whats varchar(20))	0 row(s) affected	0.078 sec
+0	15	11:44:59	show table meus_contatos	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'meus_contatos' at line 1	0.000 sec
+3	16	11:45:13	describe meus_contatos	7 row(s) returned	0.000 sec / 0.000 sec
