@@ -50,11 +50,11 @@ public class Agente {
 		this.nomeAgente = nomeAgente;
 	}
 
-	public float getVolumeTranacional() {
+	public float getVolumeTransacional() {
 		return volumeTransacional;
 	}
 
-	public void setVolumeTranacional(float volumeTransacional) {
+	public void setVolumeTransacional(float volumeTransacional) {
 		this.volumeTransacional = volumeTransacional;
 	}
 
