@@ -43,3 +43,6 @@ public static void main(String[] args) {
 git init
 git remote add origin https://github.com/LiFendicol/cursoDoti.git
 git clone https://github.com/LiFendicol/cursoDoti.git
+git config --global user.email "lifendicol@yahoo.com"
+git config --global user.name "LiFendicol"
+git push origin master
