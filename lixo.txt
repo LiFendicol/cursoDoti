@@ -38,3 +38,8 @@ public static void main(String[] args) {
         }
        
     }
+
+
+git init
+git remote add origin https://github.com/LiFendicol/cursoDoti.git
+git clone https://github.com/LiFendicol/cursoDoti.git
